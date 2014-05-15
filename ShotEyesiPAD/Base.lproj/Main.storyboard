@@ -40,11 +40,57 @@
                             <outlet property="delegate" destination="5Vb-FC-K3z" id="k4q-Ov-9Xn"/>
                         </connections>
                     </tableView>
-                    <navigationItem key="navigationItem" title="Title" id="gHv-j3-qa7"/>
+                    <navigationItem key="navigationItem" title="Title" id="gHv-j3-qa7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="9pj-eH-A1w">
+                            <connections>
+                                <segue destination="XwU-V6-ZLs" kind="modal" modalPresentationStyle="formSheet" id="wDe-tl-yoc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vKY-SZ-Muf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="496" y="-142"/>
+        </scene>
+        <!--Category Add View Controller-->
+        <scene sceneID="scq-O9-ffF">
+            <objects>
+                <viewController id="XwU-V6-ZLs" customClass="CategoryAddViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="roQ-j2-wys"/>
+                        <viewControllerLayoutGuide type="bottom" id="5NZ-Gp-3cX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hvk-Vh-1UA">
+                        <rect key="frame" x="0.0" y="0.0" width="540" height="620"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="CategroyName" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MEv-oR-mLm">
+                                <rect key="frame" x="20" y="204" width="500" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="If9-IZ-xvM">
+                                <rect key="frame" x="237" y="295" width="67" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Save">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickedSave:" destination="XwU-V6-ZLs" eventType="touchUpInside" id="X69-l3-F5Z"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <outlet property="btnSave" destination="If9-IZ-xvM" id="FMz-vZ-FtW"/>
+                        <outlet property="txtCategoryName" destination="MEv-oR-mLm" id="S6z-YJ-mKf"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Eq8-Lw-v1b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1440" y="-1340"/>
         </scene>
         <!--Report List Table View Controller-->
         <scene sceneID="NRL-p9-hCP">
