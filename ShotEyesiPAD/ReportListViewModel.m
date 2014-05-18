@@ -23,12 +23,14 @@
     self.category = categroy;
     self.modelClass = [DAReport class];
     self.APIPath = @"/Report/list";
+    self.listCondition = categroy ? @{@"categroy": categroy._id}:nil;
     
-    [[self getListWithParameters: categroy ? @{@"categroy": categroy._id}:nil] subscribeCompleted:^{
+    [[self reloadSignal] subscribeCompleted:^{
         
     }];
     
     return self;
 }
+
 
 @end

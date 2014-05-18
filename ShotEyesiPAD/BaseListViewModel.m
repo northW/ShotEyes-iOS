@@ -30,7 +30,6 @@ typedef id(^RACSignalErrorBlock)(NSError*);
         self.limit = 20;
         self.list = [[NSArray alloc] init];
         self.isLogin = [RestHelper isLogin];
-        
     }
     
 
@@ -48,13 +47,26 @@ typedef id(^RACSignalErrorBlock)(NSError*);
 }
 
 
--(RACSignal *)getListWithParameters:(NSDictionary *)parameters
+-(RACSignal *)reloadSignal
 {
-    if (parameters == nil) {
-        parameters = [[NSDictionary alloc] init];
+    self.start = 0;
+    return [self loadSignal];
+}
+
+-(RACSignal *)loadMoreSignal
+{
+    self.start += self.limit;
+    return [self loadSignal];
+}
+
+
+-(RACSignal *)loadSignal
+{
+    if (_listCondition == nil) {
+        _listCondition = [[NSDictionary alloc] init];
     }
     
-    NSDictionary *params = Underscore.extend(parameters, @{ @"start": [NSNumber numberWithInt:self.start], @"limit": [NSNumber numberWithInt:self.limit] });
+    NSDictionary *params = Underscore.extend(_listCondition, @{ @"start": [NSNumber numberWithInt:self.start], @"limit": [NSNumber numberWithInt:self.limit] });
     
     RACSignal *sig = [[self.requestManager getPath:self.APIPath parameters:params] map:^id(id result) {
         

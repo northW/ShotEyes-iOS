@@ -10,6 +10,7 @@
 #import "ReportListViewModel.h"
 #import "Entities.h"
 #import "ReportTableViewCell.h"
+#import "ReportAddOrUpdateViewController.h"
 
 @interface ReportListTableViewController ()
 @property ReportListViewModel *viewModel;
@@ -30,10 +31,21 @@
 {
     [super viewDidLoad];
     
+    self.refreshControl = [[UIRefreshControl alloc]init];
+    
     @weakify(self);
     [RACObserve(self.viewModel,list) subscribeNext:^(id x) {
         @strongify(self);
         [self.tableView reloadData];
+    }];
+    
+    [[self.refreshControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
+        @strongify(self);
+        [[[self.viewModel reloadSignal] finally:^{
+            [self.refreshControl endRefreshing];
+        }] subscribeCompleted:^{
+            
+        }];
     }];
 }
 
@@ -105,16 +117,19 @@
 }
 */
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"ReportAdd"]) {
+        ReportAddOrUpdateViewModel *vm = [[ReportAddOrUpdateViewModel alloc] init];
+        vm.category = self.viewModel.category;
+        [(ReportAddOrUpdateViewController *)segue.destinationViewController setViewModel:vm];
+    }
 }
-*/
+
 
 -(void) setModelWithCategroy:(DACategory *)categroy
 {

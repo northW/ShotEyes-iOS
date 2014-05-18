@@ -31,6 +31,9 @@
 		4744837F19231825002BBCF5 /* CategoryAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744837E19231825002BBCF5 /* CategoryAddViewController.m */; };
 		4744838219231915002BBCF5 /* CategroyAddViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744838119231915002BBCF5 /* CategroyAddViewModel.m */; };
 		4744838819234949002BBCF5 /* BaseViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744838719234949002BBCF5 /* BaseViewModel.m */; };
+		4744838B1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744838A1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m */; };
+		4744838E1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744838D1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m */; };
+		474483911925F553002BBCF5 /* ImageViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 474483901925F553002BBCF5 /* ImageViewModel.m */; };
 		B6681EA0F5C54902B5629580 /* libPods-ShotEyesiPAD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0AA51BD7309427994C64A84 /* libPods-ShotEyesiPAD.a */; };
 /* End PBXBuildFile section */
 
@@ -84,6 +87,12 @@
 		4744838119231915002BBCF5 /* CategroyAddViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategroyAddViewModel.m; sourceTree = "<group>"; };
 		4744838619234949002BBCF5 /* BaseViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseViewModel.h; sourceTree = "<group>"; };
 		4744838719234949002BBCF5 /* BaseViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseViewModel.m; sourceTree = "<group>"; };
+		474483891925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportAddOrUpdateViewModel.h; sourceTree = "<group>"; };
+		4744838A1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportAddOrUpdateViewModel.m; sourceTree = "<group>"; };
+		4744838C1925EC12002BBCF5 /* ReportAddOrUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportAddOrUpdateViewController.h; sourceTree = "<group>"; };
+		4744838D1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportAddOrUpdateViewController.m; sourceTree = "<group>"; };
+		4744838F1925F553002BBCF5 /* ImageViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageViewModel.h; sourceTree = "<group>"; };
+		474483901925F553002BBCF5 /* ImageViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageViewModel.m; sourceTree = "<group>"; };
 		DF0C6AA446754296BB0090DE /* Pods-ShotEyesiPAD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShotEyesiPAD.xcconfig"; path = "Pods/Pods-ShotEyesiPAD.xcconfig"; sourceTree = "<group>"; };
 		E0AA51BD7309427994C64A84 /* libPods-ShotEyesiPAD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShotEyesiPAD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -168,10 +177,16 @@
 				4744837519220C39002BBCF5 /* ReportListViewModel.m */,
 				4744837A192229BF002BBCF5 /* ReportTableViewCell.h */,
 				4744837B192229BF002BBCF5 /* ReportTableViewCell.m */,
+				474483891925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.h */,
+				4744838A1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m */,
+				4744838C1925EC12002BBCF5 /* ReportAddOrUpdateViewController.h */,
+				4744838D1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m */,
 				4744838619234949002BBCF5 /* BaseViewModel.h */,
 				4744838719234949002BBCF5 /* BaseViewModel.m */,
 				4744837719221633002BBCF5 /* BaseListViewModel.h */,
 				4744837819221633002BBCF5 /* BaseListViewModel.m */,
+				4744838F1925F553002BBCF5 /* ImageViewModel.h */,
+				474483901925F553002BBCF5 /* ImageViewModel.m */,
 				474483441921C86F002BBCF5 /* Images.xcassets */,
 				474483331921C86F002BBCF5 /* Supporting Files */,
 			);
@@ -352,11 +367,14 @@
 				474483641921DE4E002BBCF5 /* Entities.m in Sources */,
 				474483701921EFAF002BBCF5 /* CategoryTableViewCell.m in Sources */,
 				4744837319220BDA002BBCF5 /* ReportListTableViewController.m in Sources */,
+				4744838B1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m in Sources */,
 				4744838819234949002BBCF5 /* BaseViewModel.m in Sources */,
 				4744838219231915002BBCF5 /* CategroyAddViewModel.m in Sources */,
 				4744837619220C39002BBCF5 /* ReportListViewModel.m in Sources */,
 				474483671921DE91002BBCF5 /* CategoryListViewModel.m in Sources */,
 				474483391921C86F002BBCF5 /* main.m in Sources */,
+				474483911925F553002BBCF5 /* ImageViewModel.m in Sources */,
+				4744838E1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m in Sources */,
 				4744837F19231825002BBCF5 /* CategoryAddViewController.m in Sources */,
 				4744837C192229BF002BBCF5 /* ReportTableViewCell.m in Sources */,
 				4744836D1921E90A002BBCF5 /* CategoryListTableViewController.m in Sources */,

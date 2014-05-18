@@ -14,6 +14,9 @@
 @property int limit;
 @property NSString *APIPath;
 @property Class modelClass;
+@property NSDictionary *listCondition;
 
--(RACSignal *)getListWithParameters:(NSDictionary *)parameters;
+-(RACSignal *)reloadSignal;
+-(RACSignal *)loadMoreSignal;
+-(RACSignal *)loadSignal;
 @end

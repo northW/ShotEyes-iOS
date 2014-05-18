@@ -15,23 +15,19 @@
 @end
 
 @implementation CategroyAddViewModel
-
+@synthesize model=_model;
 
 -(id)init
 {
     self = [super init];
-    self.model = [[DACategory alloc] init];
+    _model = [[DACategory alloc] init];
+    self.createAPIPath = @"/Category/add";
+    
+
     
     return self;
 }
 
-
--(RACSignal *)postData
-{
-
-    self.APIPath = @"/Category/add";
-    return [super postData];
-}
 
 
 @end

@@ -48,7 +48,7 @@
 - (IBAction)clickedSave:(id)sender {
     self.viewModel.model.name = self.txtCategoryName.text;
     
-    [[self.viewModel postData] subscribeCompleted:^{
+    [[self.viewModel createSignal] subscribeCompleted:^{
         [self dismissViewControllerAnimated:YES completion:^{
             
         }];

@@ -10,6 +10,11 @@
 
 @interface BaseViewModel : NSObject
 @property (retain, nonatomic) id model;
-@property (retain, nonatomic) NSString *APIPath;
--(RACSignal *)postData;
+@property (retain, nonatomic) NSString *createAPIPath;
+@property (retain, nonatomic) NSString *updateAPIPath;
+@property (retain, nonatomic) NSString *fetchAPIPath;
+@property (retain, nonatomic) NSDictionary *fetchCondition;
+-(RACSignal *)createSignal;
+-(RACSignal *)updateSignal;
+-(RACSignal *)fetchSignal;
 @end

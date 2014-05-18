@@ -44,11 +44,11 @@ typedef id(^RACSignalErrorBlock)(NSError*);
     };
 }
 
--(RACSignal *)postData
+-(RACSignal *)createSignal
 {
     NSDictionary *params = [(Jastor *)self.model toDictionary];
     
-    RACSignal * sig = [[self.requestManager postPath:self.APIPath parameters:params] map:^id(id result) {
+    RACSignal * sig = [[self.requestManager postPath:self.createAPIPath parameters:params] map:^id(id result) {
         NSDictionary *data =[result valueForKeyPath:@"data"];
         
         self.model = [[[self.model class] alloc] initWithDictionary:data];
@@ -56,8 +56,35 @@ typedef id(^RACSignalErrorBlock)(NSError*);
         return result;
     }];
     
-    return sig;
+    return [sig catch:self.errorBlock];
 }
 
+-(RACSignal *)updateSignal
+{
+    NSDictionary *params = [(Jastor *)self.model toDictionary];
+    
+    RACSignal * sig = [[self.requestManager postPath:self.updateAPIPath parameters:params] map:^id(id result) {
+        NSDictionary *data =[result valueForKeyPath:@"data"];
+        
+        self.model = [[[self.model class] alloc] initWithDictionary:data];
+        
+        return result;
+    }];
+    
+    return [sig catch:self.errorBlock];
+}
+
+-(RACSignal *)fetchSignal
+{
+    RACSignal * sig = [[self.requestManager getPath:self.fetchAPIPath parameters:self.fetchCondition] map:^id(id result) {
+        NSDictionary *data =[result valueForKeyPath:@"data"];
+        
+        self.model = [[[self.model class] alloc] initWithDictionary:data];
+        
+        return result;
+    }];
+    
+    return [sig catch:self.errorBlock];
+}
 
 @end
