@@ -8,7 +8,8 @@
 
 #import <UIKit/UIKit.h>
 #import "Entities.h"
+#import "BaseTableViewController.h"
 
-@interface ReportListTableViewController : UITableViewController
+@interface ReportListTableViewController : BaseTableViewController
 -(void) setModelWithCategroy:(DACategory *)categroy;
 @end

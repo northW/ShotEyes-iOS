@@ -10,6 +10,7 @@
 #import "Jastor.h"
 #import <SmartSDK/RestHTTPRequestManager.h>
 #import <SmartSDK/RestHelper.h>
+#import <Underscore.h>
 
 @interface BaseViewModel ()
 @property RestHTTPRequestManager* requestManager;
@@ -44,9 +45,23 @@ typedef id(^RACSignalErrorBlock)(NSError*);
     };
 }
 
+
+-(RACSignal *)saveSignal
+{
+    NSLog([self.model valueForKey:@"_id"],nil);
+    if ([self.model valueForKey:@"_id"]) {
+        return [self updateSignal];
+    } else {
+        return [self createSignal];
+    }
+}
+
 -(RACSignal *)createSignal
 {
-    NSDictionary *params = [(Jastor *)self.model toDictionary];
+    
+    NSMutableDictionary *data = [(Jastor *)self.model toDictionary];
+    
+    NSDictionary *params = @{@"data": data};
     
     RACSignal * sig = [[self.requestManager postPath:self.createAPIPath parameters:params] map:^id(id result) {
         NSDictionary *data =[result valueForKeyPath:@"data"];
@@ -59,11 +74,15 @@ typedef id(^RACSignalErrorBlock)(NSError*);
     return [sig catch:self.errorBlock];
 }
 
+
 -(RACSignal *)updateSignal
 {
-    NSDictionary *params = [(Jastor *)self.model toDictionary];
+    NSDictionary *data = [(Jastor *)self.model toDictionary];
     
-    RACSignal * sig = [[self.requestManager postPath:self.updateAPIPath parameters:params] map:^id(id result) {
+    
+    NSDictionary *params = @{@"filter":self.updateFilter,@"data": data};
+    
+    RACSignal * sig = [[self.requestManager putPath:self.updateAPIPath parameters:params] map:^id(id result) {
         NSDictionary *data =[result valueForKeyPath:@"data"];
         
         self.model = [[[self.model class] alloc] initWithDictionary:data];
@@ -76,7 +95,7 @@ typedef id(^RACSignalErrorBlock)(NSError*);
 
 -(RACSignal *)fetchSignal
 {
-    RACSignal * sig = [[self.requestManager getPath:self.fetchAPIPath parameters:self.fetchCondition] map:^id(id result) {
+    RACSignal * sig = [[self.requestManager getPath:self.fetchAPIPath parameters:self.fetchFilter] map:^id(id result) {
         NSDictionary *data =[result valueForKeyPath:@"data"];
         
         self.model = [[[self.model class] alloc] initWithDictionary:data];

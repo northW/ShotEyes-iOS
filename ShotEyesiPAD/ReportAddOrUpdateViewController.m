@@ -7,6 +7,7 @@
 //
 
 #import "ReportAddOrUpdateViewController.h"
+#import <UIImageView+WebCache.h>
 
 
 @interface ReportAddOrUpdateViewController ()
@@ -53,6 +54,14 @@
         self.viewModel.imageViewModel.image = x;
     }];
     
+    [[RACObserve(self.viewModel.model, picture) distinctUntilChanged] subscribeNext:^(id x) {
+        @strongify(self);
+        //        [self.imgPhoto setImageWithURL:[NSURL URLWithString:[self.viewModel reportImageURLString]]];
+        
+        [self.imgPhoto setImageWithURL:[NSURL URLWithString:[self.viewModel reportImageURLString]] placeholderImage:nil options:SDWebImageHandleCookies];
+        
+    }];
+    
     RAC(self.btnSave, enabled) = self.viewModel.modelIsValidSignal;
     
 }
@@ -90,7 +99,7 @@
     [self.viewModel.imageViewModel upLoadImageThenDo:^{
         @strongify(self);
         
-        [[self.viewModel createSignal] subscribeCompleted:^{
+        [[self.viewModel saveSignal] subscribeCompleted:^{
             
             [self dismissViewControllerAnimated:YES completion:nil];
         }];

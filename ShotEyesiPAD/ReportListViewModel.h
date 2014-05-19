@@ -7,10 +7,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseListViewModel.h"
+#import "BaseListViewModel+TableDateSource.h"
 #import "Entities.h"
 
 @interface ReportListViewModel : BaseListViewModel
 @property (retain, nonatomic) DACategory *category;
-- (id)initWithCategory:(DACategory *)categroy;
+- (id)initWithCategory:(DACategory *)categroy cellIdentifier:(NSString *)cellIdentifier
+    configureCellBlock:(TableViewCellConfigureBlock)configureCellBlock;
 @end

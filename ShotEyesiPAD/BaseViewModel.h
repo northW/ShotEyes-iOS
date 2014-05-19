@@ -13,8 +13,12 @@
 @property (retain, nonatomic) NSString *createAPIPath;
 @property (retain, nonatomic) NSString *updateAPIPath;
 @property (retain, nonatomic) NSString *fetchAPIPath;
-@property (retain, nonatomic) NSDictionary *fetchCondition;
+@property (retain, nonatomic) NSDictionary *updateFilter;
+@property (retain, nonatomic) NSDictionary *fetchFilter;
+
+-(id)initWithModel:(id)model;
 -(RACSignal *)createSignal;
 -(RACSignal *)updateSignal;
 -(RACSignal *)fetchSignal;
+-(RACSignal *)saveSignal;
 @end

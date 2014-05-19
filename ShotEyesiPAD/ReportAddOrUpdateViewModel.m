@@ -7,18 +7,25 @@
 //
 
 #import "ReportAddOrUpdateViewModel.h"
+#import <RestHelper.h>
 
 @implementation ReportAddOrUpdateViewModel
 -(id)init
 {
-    self = [super init];
-    self.model = [[DAReport alloc] init];
+    return [self initWithModel:[[DAReport alloc] init]];
+}
+
+-(id)initWithModel:(id)model
+{
+    self = [super initWithModel:model];
     self.category = [[DACategory alloc] init];
     self.imageViewModel = [[ImageViewModel alloc] init];
     
     self.createAPIPath = @"/Report/add";
+    self.updateAPIPath = @"/Report/update";
+    self.updateFilter = @{@"_id":[self.model valueForKey:@"_id"]};
     
-//    RAC(self.model, category) = RACObserve(self.category, _id);
+    //    RAC(self.model, category) = RACObserve(self.category, _id);
     
     @weakify(self);
     [RACObserve(self, category) subscribeNext:^(id x) {
@@ -37,10 +44,16 @@
 
 -(RACSignal *)modelIsValidSignal
 {
-    @weakify(self);
+//    @weakify(self);
     return [RACSignal combineLatest:@[RACObserve(self.model, title), RACObserve(self.model, summary), RACObserve(self.imageViewModel, image)] reduce:^id(NSString *title, NSString *summary, UIImage *image){
-        @strongify(self);
+//        @strongify(self);
         return @((title.length > 0) && (summary.length > 0) && (image != nil));
     }];
 }
+
+-(NSString *)reportImageURLString
+{
+    return [NSString stringWithFormat:@"%@/Picture/fetch?fileInfoId=%@",[RestHelper getServerAddress],self.model.picture];
+}
+
 @end

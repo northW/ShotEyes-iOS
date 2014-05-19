@@ -11,23 +11,13 @@
 
 @implementation ReportListViewModel
 
-- (id)init
-{
-    return [self initWithCategory:nil];
-}
 
-- (id)initWithCategory:(DACategory *)categroy
+- (id)initWithCategory:(DACategory *)categroy cellIdentifier:(NSString *)cellIdentifier
+    configureCellBlock:(TableViewCellConfigureBlock)configureCellBlock
 {
-    self = [super init];
-    
     self.category = categroy;
-    self.modelClass = [DAReport class];
-    self.APIPath = @"/Report/list";
     self.listCondition = categroy ? @{@"categroy": categroy._id}:nil;
-    
-    [[self reloadSignal] subscribeCompleted:^{
-        
-    }];
+    self = [super initWithViewModelClass:[DAReport class] APIPath:@"/Report/list" cellIdentifier:cellIdentifier configureCellBlock:configureCellBlock];
     
     return self;
 }

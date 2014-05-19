@@ -170,11 +170,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportCell" rowHeight="106" id="Tob-Ef-Nh3" customClass="ReportTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="blue" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="ReportCell" rowHeight="106" id="Tob-Ef-Nh3" customClass="ReportTableViewCell">
                                 <rect key="frame" x="0.0" y="86" width="768" height="106"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Tob-Ef-Nh3" id="zgf-uH-msX">
-                                    <rect key="frame" x="0.0" y="0.0" width="768" height="105"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="735" height="105"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tWh-ut-lKH">
@@ -195,6 +195,7 @@
                                 <connections>
                                     <outlet property="lblSummary" destination="iGF-oq-NW9" id="M30-ae-T8y"/>
                                     <outlet property="lblTitle" destination="tWh-ut-lKH" id="1hp-9B-IYR"/>
+                                    <segue destination="aec-dC-644" kind="push" identifier="ReportDetail" id="lmp-C4-IHQ"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -214,6 +215,56 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fAS-kE-aaf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1440" y="-142"/>
+        </scene>
+        <!--Report Detail View Controller-->
+        <scene sceneID="Ouh-xg-LKp">
+            <objects>
+                <viewController id="aec-dC-644" customClass="ReportDetailViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Ee9-0H-SRn"/>
+                        <viewControllerLayoutGuide type="bottom" id="HJX-ll-AC1"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="p3P-ij-lLd">
+                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TlF-uX-K1D">
+                                <rect key="frame" x="20" y="96" width="728" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="t7Z-uC-aYK">
+                                <rect key="frame" x="20" y="125" width="728" height="138"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xDf-fa-kCQ">
+                                <rect key="frame" x="20" y="271" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="8Td-BX-Ixa">
+                        <barButtonItem key="rightBarButtonItem" systemItem="edit" id="aoa-zJ-doC">
+                            <connections>
+                                <segue destination="WQ5-it-vj4" kind="modal" identifier="ReportEdit" modalPresentationStyle="formSheet" id="JPr-z8-fxu"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="imgPhoto" destination="xDf-fa-kCQ" id="hQ7-xw-Bgy"/>
+                        <outlet property="txtSummary" destination="t7Z-uC-aYK" id="Zsv-Ln-LJh"/>
+                        <outlet property="txtTitle" destination="TlF-uX-K1D" id="jxb-3v-C8H"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6B1-FL-b2q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2446" y="-142"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="kGt-X5-9ve">
@@ -236,4 +287,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="JPr-z8-fxu"/>
+    </inferredMetricsTieBreakers>
 </document>

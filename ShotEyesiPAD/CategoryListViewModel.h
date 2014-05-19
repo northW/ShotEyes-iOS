@@ -7,10 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "BaseListViewModel.h"
 
-@interface CategoryListViewModel : NSObject
-@property NSArray *categories;
-@property int start;
-@property int limit;
--(RACSignal *)getListWithParameters:(NSDictionary *)parameters;
+@interface CategoryListViewModel : BaseListViewModel
 @end

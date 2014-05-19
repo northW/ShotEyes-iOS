@@ -20,21 +20,43 @@
 typedef id(^RACSignalErrorBlock)(NSError*);
 
 @implementation BaseListViewModel
--(instancetype)init
+//-(instancetype)init
+//{
+//    self = [super init];
+//    if (self) {
+//        // init properties
+//        self.requestManager = [RestHTTPRequestManager sharedManager];
+//        self.start = 0;
+//        self.limit = 20;
+//        self.list = [[NSArray alloc] init];
+//        self.isLogin = [RestHelper isLogin];
+//    }
+//    
+//
+//    
+//    return self;
+//}
+
+- (id)initWithViewModelClass:(Class) modelClass
+                     APIPath:(NSString *)path
 {
     self = [super init];
-    if (self) {
-        // init properties
-        self.requestManager = [RestHTTPRequestManager sharedManager];
-        self.start = 0;
-        self.limit = 20;
-        self.list = [[NSArray alloc] init];
-        self.isLogin = [RestHelper isLogin];
-    }
+    self.APIPath = path;
+    self.modelClass = modelClass;
     
-
+    self.requestManager = [RestHTTPRequestManager sharedManager];
+    self.start = 0;
+    self.limit = 20;
+    self.list = [[NSArray alloc] init];
+    self.isLogin = [RestHelper isLogin];
+    
+    
+    [[self reloadSignal] subscribeCompleted:^{
+        
+    }];
     
     return self;
+    
 }
 
 - (RACSignalErrorBlock)errorBlock {

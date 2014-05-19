@@ -11,6 +11,7 @@
 #import "Entities.h"
 #import "ReportTableViewCell.h"
 #import "ReportAddOrUpdateViewController.h"
+#import "ReportDetailViewController.h"
 
 @interface ReportListTableViewController ()
 @property ReportListViewModel *viewModel;
@@ -30,23 +31,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.refreshControl = [[UIRefreshControl alloc]init];
-    
-    @weakify(self);
-    [RACObserve(self.viewModel,list) subscribeNext:^(id x) {
-        @strongify(self);
-        [self.tableView reloadData];
-    }];
-    
-    [[self.refreshControl rac_signalForControlEvents:UIControlEventValueChanged] subscribeNext:^(id x) {
-        @strongify(self);
-        [[[self.viewModel reloadSignal] finally:^{
-            [self.refreshControl endRefreshing];
-        }] subscribeCompleted:^{
-            
-        }];
-    }];
 }
 
 - (void)didReceiveMemoryWarning
@@ -55,67 +39,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-#pragma mark - Table view data source
-
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return 1;
-}
-
-- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
-{
-    return [self.viewModel.list count];
-
-}
-
-
-- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    ReportTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"ReportCell" forIndexPath:indexPath];
-    
-    [cell setModelWithReport:[self.viewModel.list objectAtIndex:indexPath.row]];
-    
-    return cell;
-}
-
-
-/*
-// Override to support conditional editing of the table view.
-- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the specified item to be editable.
-    return YES;
-}
-*/
-
-/*
-// Override to support editing the table view.
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
-        // Delete the row from the data source
-        [tableView deleteRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationFade];
-    } else if (editingStyle == UITableViewCellEditingStyleInsert) {
-        // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }   
-}
-*/
-
-/*
-// Override to support rearranging the table view.
-- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
-{
-}
-*/
-
-/*
-// Override to support conditional rearranging of the table view.
-- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // Return NO if you do not want the item to be re-orderable.
-    return YES;
-}
-*/
 
 
 #pragma mark - Navigation
@@ -127,6 +50,9 @@
         ReportAddOrUpdateViewModel *vm = [[ReportAddOrUpdateViewModel alloc] init];
         vm.category = self.viewModel.category;
         [(ReportAddOrUpdateViewController *)segue.destinationViewController setViewModel:vm];
+    } else if ([segue.identifier isEqualToString:@"ReportDetail"]) {
+        ReportTableViewCell *cell = sender;
+        [(ReportDetailViewController *)segue.destinationViewController setModelWithReport:cell.model];
     }
 }
 
@@ -134,7 +60,10 @@
 -(void) setModelWithCategroy:(DACategory *)categroy
 {
     self.title = categroy.name;
-    self.viewModel = [[ReportListViewModel alloc] initWithCategory:categroy];
+    self.viewModel = [[ReportListViewModel alloc] initWithCategory:categroy cellIdentifier:@"ReportCell" configureCellBlock:^(id cell, id item) {
+        [cell setModelWithReport:item];
+    }];
+    self.tableView.dataSource = self.viewModel;
 }
 
 @end
