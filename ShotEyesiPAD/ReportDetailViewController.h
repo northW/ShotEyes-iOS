@@ -7,16 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import <SmartSDK/BaseViewModel.h>
-#import <SmartSDK/ImageViewModel.h>
+#import "ReportAddOrUpdateViewModel.h"
 #import "Entities.h"
 
 @interface ReportDetailViewController : UIViewController
-@property (retain, nonatomic) BaseViewModel *viewModel;
-@property (retain, nonatomic) ImageViewModel *imageViewModel;
+@property (retain, nonatomic) ReportAddOrUpdateViewModel *viewModel;
 
 @property (weak, nonatomic) IBOutlet UILabel *txtTitle;
 @property (weak, nonatomic) IBOutlet UITextView *txtSummary;
 @property (weak, nonatomic) IBOutlet UIImageView *imgPhoto;
--(void)setModelWithReport:(DAReport *)report;
+-(void)setModelWithReport:(DAReport *)report category:(DACategory *)category;
 @end

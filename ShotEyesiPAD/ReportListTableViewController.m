@@ -47,12 +47,11 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ReportAdd"]) {
-        ReportAddOrUpdateViewModel *vm = [[ReportAddOrUpdateViewModel alloc] init];
-        vm.category = self.viewModel.category;
+        ReportAddOrUpdateViewModel *vm = [[ReportAddOrUpdateViewModel alloc] initWithModel:[[DAReport alloc] init] category:self.viewModel.category];
         [(ReportAddOrUpdateViewController *)segue.destinationViewController setViewModel:vm];
     } else if ([segue.identifier isEqualToString:@"ReportDetail"]) {
         ReportTableViewCell *cell = sender;
-        [(ReportDetailViewController *)segue.destinationViewController setModelWithReport:cell.model];
+        [(ReportDetailViewController *)segue.destinationViewController setModelWithReport:cell.model category:self.viewModel.category];
     }
 }
 

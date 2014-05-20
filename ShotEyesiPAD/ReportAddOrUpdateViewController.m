@@ -56,10 +56,7 @@
     
     [[RACObserve(self.viewModel.model, picture) distinctUntilChanged] subscribeNext:^(id x) {
         @strongify(self);
-        //        [self.imgPhoto setImageWithURL:[NSURL URLWithString:[self.viewModel reportImageURLString]]];
-        
-        [self.imgPhoto setImageWithURL:[NSURL URLWithString:[self.viewModel reportImageURLString]] placeholderImage:nil options:SDWebImageHandleCookies];
-        
+        [self.viewModel.imageViewModel setImageInImageView:self.imgPhoto placeholderImage:nil];
     }];
     
     RAC(self.btnSave, enabled) = self.viewModel.modelIsValidSignal;

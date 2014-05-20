@@ -11,22 +11,21 @@
 #import "APIUrl.h"
 
 @implementation ReportAddOrUpdateViewModel
--(id)init
-{
-    return [self initWithModel:[[DAReport alloc] init]];
-}
-
 -(id)initWithModel:(id)model
 {
     self = [super initWithModel:model];
-    self.category = [[DACategory alloc] init];
-    self.imageViewModel = [[ImageViewModel alloc] init];
     
     self.createAPIPath = kUrlReportAdd;
     self.updateAPIPath = kUrlReportUpdate;
     if (self.model._id) {
         self.updateFilter = @{@"_id":self.model._id};
+        self.imageViewModel = [[ImageViewModel alloc] initWithFetchPath:@"/Picture/fetch" fileId:self.model.picture];
+    } else {// to create
+        self.category = [[DACategory alloc] init];
+        self.imageViewModel = [[ImageViewModel alloc] init];
     }
+    
+    self.imageViewModel.uploadPath = @"/Picture/upload";
     
     
     //    RAC(self.model, category) = RACObserve(self.category, _id);
@@ -48,6 +47,14 @@
     return self;
 }
 
+-(id)initWithModel:(id)model category:(DACategory *)category
+{
+    self = [self initWithModel:model];
+    self.category = category;
+    
+    return self;
+}
+
 
 -(RACSignal *)modelIsValidSignal
 {
@@ -56,12 +63,6 @@
 //        @strongify(self);
         return @((title.length > 0) && (summary.length > 0) && (image != nil));
     }];
-}
-
--(NSString *)reportImageURLString
-{
-    NSString *path = [NSString stringWithFormat:kUrlPictureFetch,self.model.picture];
-    return [NSString stringWithFormat:@"%@%@",[RestHelper getServerAddress],path];
 }
 
 @end

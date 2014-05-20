@@ -34,22 +34,13 @@
     
     @weakify(self);
     
-    [[RACObserve(self.viewModel, model) distinctUntilChanged] subscribeNext:^(id x) {
-        @strongify(self);
-//        [self.imgPhoto setImageWithURL:[NSURL URLWithString:[self.viewModel reportImageURLString]]];
-        
-        DAReport *report = x;
-        
-        self.txtTitle.text = report.title;
-        self.txtSummary.text = report.summary;
-        
-    }];
+    RAC(self.txtTitle, text) = [RACObserve(self.viewModel.model,title) distinctUntilChanged];
+    RAC(self.txtSummary, text) = [RACObserve(self.viewModel.model,summary) distinctUntilChanged];
     
-    [[RACObserve(self.imageViewModel, image) distinctUntilChanged] subscribeNext:^(id x) {
+    [[RACObserve(self.viewModel.imageViewModel, model) distinctUntilChanged] subscribeNext:^(id x) {
         @strongify(self);
-        //        [self.imgPhoto setImageWithURL:[NSURL URLWithString:[self.viewModel reportImageURLString]]];
         
-        self.imgPhoto.image = x;
+        [self.viewModel.imageViewModel setImageInImageView:self.imgPhoto placeholderImage:nil];
         
     }];
     
@@ -68,17 +59,14 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     if ([segue.identifier isEqualToString:@"ReportEdit"]) {
-        ReportAddOrUpdateViewModel *vm = [[ReportAddOrUpdateViewModel alloc] initWithModel:self.viewModel.model];
-//        vm.model = self.viewModel.model;
-//        vm.category = self.viewModel.category;
-        [(ReportAddOrUpdateViewController *)segue.destinationViewController setViewModel:vm];
+//        ReportAddOrUpdateViewModel *vm = [[ReportAddOrUpdateViewModel alloc] initWithModel:self.viewModel.model category:self.viewModel.category];
+        [(ReportAddOrUpdateViewController *)segue.destinationViewController setViewModel:self.viewModel];
     }
 }
 
--(void)setModelWithReport:(DAReport *)report
+-(void)setModelWithReport:(DAReport *)report category:(DACategory *)category
 {
-    self.viewModel = [[BaseViewModel alloc] initWithModel:report];
-    self.imageViewModel = [[ImageViewModel alloc] initAndFetchImageWithFetchPath:@"/Picture/fetch" fileId:report.picture];
+    self.viewModel = [[ReportAddOrUpdateViewModel alloc] initWithModel:report category:category];
 }
 
 

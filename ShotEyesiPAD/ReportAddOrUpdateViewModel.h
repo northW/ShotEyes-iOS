@@ -14,6 +14,6 @@
 @property(retain, nonatomic)DACategory *category;
 @property(retain,nonatomic)DAReport *model;
 @property(retain,nonatomic)ImageViewModel *imageViewModel;
--(NSString *)reportImageURLString;
+-(id)initWithModel:(id)model category:(DACategory *)category;
 -(RACSignal *)modelIsValidSignal;
 @end
