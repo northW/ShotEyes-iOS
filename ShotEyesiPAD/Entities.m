@@ -1,11 +1,11 @@
 
 #import "Entities.h"
 
-@implementation DACategory
+@implementation DAReport
 
 @end
 
-@implementation DAReport
+@implementation DACategory
 
 @end
 

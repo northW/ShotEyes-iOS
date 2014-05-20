@@ -7,7 +7,7 @@
 //
 
 #import "ReportListViewModel.h"
-
+#import "APIUrl.h"
 
 @implementation ReportListViewModel
 
@@ -16,8 +16,8 @@
     configureCellBlock:(TableViewCellConfigureBlock)configureCellBlock
 {
     self.category = categroy;
-    self.listCondition = categroy ? @{@"categroy": categroy._id}:nil;
-    self = [super initWithViewModelClass:[DAReport class] APIPath:@"/Report/list" cellIdentifier:cellIdentifier configureCellBlock:configureCellBlock];
+    self.listCondition = categroy ? @{@"category": categroy._id}:nil;
+    self = [super initWithViewModelClass:[DAReport class] APIPath:kUrlReportList cellIdentifier:cellIdentifier configureCellBlock:configureCellBlock];
     
     return self;
 }

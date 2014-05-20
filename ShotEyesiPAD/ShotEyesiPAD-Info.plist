@@ -37,5 +37,13 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>API_Host</key>
+	<string>10.2.3.39</string>
+	<key>API_Port</key>
+	<integer>3000</integer>
+	<key>API_Scheme</key>
+	<string>http</string>
+	<key>API_Cookie</key>
+	<string>ShotEyesWeb.sid</string>
 </dict>
 </plist>

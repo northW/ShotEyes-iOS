@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseTableViewController.h"
+#import <SmartSDK/BaseTableViewController.h>
 
 @interface CategoryListTableViewController : BaseTableViewController
 

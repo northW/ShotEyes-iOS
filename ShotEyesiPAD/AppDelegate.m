@@ -7,11 +7,14 @@
 //
 
 #import "AppDelegate.h"
+#import "SmartSDK.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
+    [DALogger initWithLoggerType:DALogToCLI | DALogToFile logLevel:ddLogLevel];
+    [DAConfigManager initWithPlistFile:nil];
     // Override point for customization after application launch.
     return YES;
 }

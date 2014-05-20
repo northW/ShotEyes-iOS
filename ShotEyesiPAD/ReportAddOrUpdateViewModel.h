@@ -6,9 +6,9 @@
 //  Copyright (c) 2014年 kita. All rights reserved.
 //
 
-#import "BaseViewModel.h"
+#import <SmartSDK/BaseViewModel.h>
+#import <SmartSDK/ImageViewModel.h>
 #import "Entities.h"
-#import "ImageViewModel.h"
 
 @interface ReportAddOrUpdateViewModel : BaseViewModel
 @property(retain, nonatomic)DACategory *category;

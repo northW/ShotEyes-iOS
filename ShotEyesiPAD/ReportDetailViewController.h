@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BaseViewModel.h"
-#import "ImageViewModel.h"
+#import <SmartSDK/BaseViewModel.h>
+#import <SmartSDK/ImageViewModel.h>
 #import "Entities.h"
 
 @interface ReportDetailViewController : UIViewController

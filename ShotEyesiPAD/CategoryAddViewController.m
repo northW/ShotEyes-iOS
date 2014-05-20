@@ -7,8 +7,9 @@
 //
 
 #import "CategoryAddViewController.h"
-#import "BaseViewModel.h"
+#import <SmartSDK/BaseViewModel.h>
 #import "Entities.h"
+#import "APIUrl.h"
 
 @interface CategoryAddViewController ()
 @property BaseViewModel * viewModel;
@@ -29,7 +30,7 @@
 {
     [super viewDidLoad];
     self.viewModel = [[BaseViewModel alloc] initWithModel:[[DACategory alloc] init]];
-    self.viewModel.createAPIPath = @"/Category/add";
+    self.viewModel.createAPIPath = kUrlCategoryAdd;
     @weakify(self);
     [[self.txtCategoryName.rac_textSignal distinctUntilChanged] subscribeNext:^(id x) {
         @strongify(self);

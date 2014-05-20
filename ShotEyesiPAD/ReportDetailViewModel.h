@@ -6,7 +6,7 @@
 //  Copyright (c) 2014年 kita. All rights reserved.
 //
 
-#import "BaseViewModel.h"
+#import <SmartSDK/BaseViewModel.h>
 #import "Entities.h"
 
 @interface ReportDetailViewModel : BaseViewModel

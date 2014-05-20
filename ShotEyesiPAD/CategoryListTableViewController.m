@@ -10,6 +10,7 @@
 #import "Entities.h"
 #import "CategoryTableViewCell.h"
 #import "ReportListTableViewController.h"
+#import "APIUrl.h"
 
 @interface CategoryListTableViewController ()
 @end
@@ -28,7 +29,7 @@
 - (void)viewDidLoad
 {
     // 
-    self.viewModel = [[BaseListViewModel alloc] initWithViewModelClass:[DACategory class] APIPath:@"/Category/list" cellIdentifier:@"CategoryCell" configureCellBlock:^(id cell, id item) {
+    self.viewModel = [[BaseListViewModel alloc] initWithViewModelClass:[DACategory class] APIPath:kUrlCategoryList cellIdentifier:@"CategoryCell" configureCellBlock:^(id cell, id item) {
         [cell setDataWithCategory:item];
     }];
     

@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BaseListViewModel+TableDateSource.h"
+#import <SmartSDK/BaseListViewModel+TableDateSource.h>
 #import "Entities.h"
 
 @interface ReportListViewModel : BaseListViewModel

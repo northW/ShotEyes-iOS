@@ -7,8 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SmartSDK/BaseTableViewController.h>
 #import "Entities.h"
-#import "BaseTableViewController.h"
 
 @interface ReportListTableViewController : BaseTableViewController
 -(void) setModelWithCategroy:(DACategory *)categroy;

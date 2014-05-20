@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "Entities.h"
-#import "BaseViewModel.h"
+#import <SmartSDK/BaseViewModel.h>
 
 @interface CategroyAddViewModel : BaseViewModel
 @property(retain, nonatomic) DACategory *model;

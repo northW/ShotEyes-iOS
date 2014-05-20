@@ -7,7 +7,8 @@
 //
 
 #import "ReportAddOrUpdateViewModel.h"
-#import <RestHelper.h>
+#import <SmartSDK/RestHelper.h>
+#import "APIUrl.h"
 
 @implementation ReportAddOrUpdateViewModel
 -(id)init
@@ -21,8 +22,8 @@
     self.category = [[DACategory alloc] init];
     self.imageViewModel = [[ImageViewModel alloc] init];
     
-    self.createAPIPath = @"/Report/add";
-    self.updateAPIPath = @"/Report/update";
+    self.createAPIPath = kUrlReportAdd;
+    self.updateAPIPath = kUrlReportUpdate;
     if (self.model._id) {
         self.updateFilter = @{@"_id":self.model._id};
     }
@@ -59,7 +60,8 @@
 
 -(NSString *)reportImageURLString
 {
-    return [NSString stringWithFormat:@"%@/Picture/fetch?fileInfoId=%@",[RestHelper getServerAddress],self.model.picture];
+    NSString *path = [NSString stringWithFormat:kUrlPictureFetch,self.model.picture];
+    return [NSString stringWithFormat:@"%@%@",[RestHelper getServerAddress],path];
 }
 
 @end

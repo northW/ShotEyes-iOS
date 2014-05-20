@@ -10,6 +10,7 @@
 #import <SmartSDK/RestHTTPRequestManager.h>
 #import <SmartSDK/RestHelper.h>
 #import <Underscore.h>
+#import "APIUrl.h"
 
 @interface CategroyAddViewModel()
 @end
@@ -21,10 +22,8 @@
 {
     self = [super init];
     _model = [[DACategory alloc] init];
-    self.createAPIPath = @"/Category/add";
-    
+    self.createAPIPath = kUrlCategoryAdd;
 
-    
     return self;
 }
 

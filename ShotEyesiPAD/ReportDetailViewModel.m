@@ -7,7 +7,8 @@
 //
 
 #import "ReportDetailViewModel.h"
-#import <RestHelper.h>
+#import <SmartSDK/RestHelper.h>
+#import "APIUrl.h"
 
 @implementation ReportDetailViewModel
 
@@ -27,20 +28,12 @@
     return self;
 }
 
-//-(id)initWithModel:(DAReport *)model
-//{
-//    self = [super initWithModel:model];
-//    
-//    
-//    
-//    return self;
-//}
-
 
 
 -(NSString *)reportImageURLString
 {
-    return [NSString stringWithFormat:@"%@/Picture/fetch?fileInfoId=%@",[RestHelper getServerAddress],self.model.picture];
+    NSString *path = [NSString stringWithFormat:kUrlPictureFetch,self.model.picture];
+    return [NSString stringWithFormat:@"%@%@",[RestHelper getServerAddress],path];
 }
 
 @end
