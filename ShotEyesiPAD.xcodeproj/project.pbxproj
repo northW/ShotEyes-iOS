@@ -150,24 +150,8 @@
 				4744833B1921C86F002BBCF5 /* AppDelegate.h */,
 				4744833C1921C86F002BBCF5 /* AppDelegate.m */,
 				4744833E1921C86F002BBCF5 /* Main.storyboard */,
-				4744836B1921E90A002BBCF5 /* CategoryListTableViewController.h */,
-				4744836C1921E90A002BBCF5 /* CategoryListTableViewController.m */,
-				4744836E1921EFAE002BBCF5 /* CategoryTableViewCell.h */,
-				4744836F1921EFAF002BBCF5 /* CategoryTableViewCell.m */,
-				4744837D19231825002BBCF5 /* CategoryAddViewController.h */,
-				4744837E19231825002BBCF5 /* CategoryAddViewController.m */,
-				4744837119220BDA002BBCF5 /* ReportListTableViewController.h */,
-				4744837219220BDA002BBCF5 /* ReportListTableViewController.m */,
-				4744837419220C39002BBCF5 /* ReportListViewModel.h */,
-				4744837519220C39002BBCF5 /* ReportListViewModel.m */,
-				4744837A192229BF002BBCF5 /* ReportTableViewCell.h */,
-				4744837B192229BF002BBCF5 /* ReportTableViewCell.m */,
-				474483891925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.h */,
-				4744838A1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m */,
-				4744838C1925EC12002BBCF5 /* ReportAddOrUpdateViewController.h */,
-				4744838D1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m */,
-				47448392192881F6002BBCF5 /* ReportDetailViewController.h */,
-				47448393192881F6002BBCF5 /* ReportDetailViewController.m */,
+				4744839F192B5AA0002BBCF5 /* Category */,
+				4744839E192B5A89002BBCF5 /* Report */,
 				474483441921C86F002BBCF5 /* Images.xcassets */,
 				474483331921C86F002BBCF5 /* Supporting Files */,
 			);
@@ -211,6 +195,38 @@
 				474483631921DE4E002BBCF5 /* Entities.m */,
 			);
 			name = Entities;
+			sourceTree = "<group>";
+		};
+		4744839E192B5A89002BBCF5 /* Report */ = {
+			isa = PBXGroup;
+			children = (
+				4744837419220C39002BBCF5 /* ReportListViewModel.h */,
+				4744837519220C39002BBCF5 /* ReportListViewModel.m */,
+				4744837119220BDA002BBCF5 /* ReportListTableViewController.h */,
+				4744837219220BDA002BBCF5 /* ReportListTableViewController.m */,
+				4744837A192229BF002BBCF5 /* ReportTableViewCell.h */,
+				4744837B192229BF002BBCF5 /* ReportTableViewCell.m */,
+				474483891925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.h */,
+				4744838A1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m */,
+				4744838C1925EC12002BBCF5 /* ReportAddOrUpdateViewController.h */,
+				4744838D1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m */,
+				47448392192881F6002BBCF5 /* ReportDetailViewController.h */,
+				47448393192881F6002BBCF5 /* ReportDetailViewController.m */,
+			);
+			name = Report;
+			sourceTree = "<group>";
+		};
+		4744839F192B5AA0002BBCF5 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				4744836B1921E90A002BBCF5 /* CategoryListTableViewController.h */,
+				4744836C1921E90A002BBCF5 /* CategoryListTableViewController.m */,
+				4744836E1921EFAE002BBCF5 /* CategoryTableViewCell.h */,
+				4744836F1921EFAF002BBCF5 /* CategoryTableViewCell.m */,
+				4744837D19231825002BBCF5 /* CategoryAddViewController.h */,
+				4744837E19231825002BBCF5 /* CategoryAddViewController.m */,
+			);
+			name = Category;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
