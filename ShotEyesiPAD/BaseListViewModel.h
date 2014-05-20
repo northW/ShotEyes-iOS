@@ -16,6 +16,7 @@
 @property Class modelClass;
 @property NSDictionary *listCondition;
 
+
 - (id)initWithViewModelClass:(Class) modelClass
                      APIPath:(NSString *)path;
 

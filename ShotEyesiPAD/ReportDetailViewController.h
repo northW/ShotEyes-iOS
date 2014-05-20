@@ -7,10 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "ReportDetailViewModel.h"
+#import "BaseViewModel.h"
+#import "ImageViewModel.h"
+#import "Entities.h"
 
 @interface ReportDetailViewController : UIViewController
-@property (retain, nonatomic) ReportDetailViewModel *viewModel;
+@property (retain, nonatomic) BaseViewModel *viewModel;
+@property (retain, nonatomic) ImageViewModel *imageViewModel;
 
 @property (weak, nonatomic) IBOutlet UILabel *txtTitle;
 @property (weak, nonatomic) IBOutlet UITextView *txtSummary;

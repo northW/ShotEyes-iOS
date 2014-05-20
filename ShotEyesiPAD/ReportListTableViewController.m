@@ -61,9 +61,9 @@
 {
     self.title = categroy.name;
     self.viewModel = [[ReportListViewModel alloc] initWithCategory:categroy cellIdentifier:@"ReportCell" configureCellBlock:^(id cell, id item) {
+        
         [cell setModelWithReport:item];
     }];
-    self.tableView.dataSource = self.viewModel;
 }
 
 @end

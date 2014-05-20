@@ -7,10 +7,11 @@
 //
 
 #import "CategoryAddViewController.h"
-#import "CategroyAddViewModel.h"
+#import "BaseViewModel.h"
+#import "Entities.h"
 
 @interface CategoryAddViewController ()
-@property CategroyAddViewModel * viewModel;
+@property BaseViewModel * viewModel;
 @end
 
 @implementation CategoryAddViewController
@@ -27,7 +28,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    self.viewModel = [[CategroyAddViewModel alloc] init];
+    self.viewModel = [[BaseViewModel alloc] initWithModel:[[DACategory alloc] init]];
+    self.viewModel.createAPIPath = @"/Category/add";
+    @weakify(self);
+    [[self.txtCategoryName.rac_textSignal distinctUntilChanged] subscribeNext:^(id x) {
+        @strongify(self);
+        ((DACategory*)self.viewModel.model).name = self.txtCategoryName.text;
+    }];
     
 }
 
@@ -46,8 +53,6 @@
 
 
 - (IBAction)clickedSave:(id)sender {
-    self.viewModel.model.name = self.txtCategoryName.text;
-    
     [[self.viewModel createSignal] subscribeCompleted:^{
         [self dismissViewControllerAnimated:YES completion:^{
             

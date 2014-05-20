@@ -10,10 +10,8 @@
 #import "Entities.h"
 #import "CategoryTableViewCell.h"
 #import "ReportListTableViewController.h"
-#import "BaseListViewModel+TableDateSource.h"
 
 @interface CategoryListTableViewController ()
-@property BaseListViewModel *viewModel;
 @end
 
 @implementation CategoryListTableViewController
@@ -33,7 +31,7 @@
     self.viewModel = [[BaseListViewModel alloc] initWithViewModelClass:[DACategory class] APIPath:@"/Category/list" cellIdentifier:@"CategoryCell" configureCellBlock:^(id cell, id item) {
         [cell setDataWithCategory:item];
     }];
-    self.tableView.dataSource = self.viewModel;
+    
     
     
     [super viewDidLoad];

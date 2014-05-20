@@ -96,7 +96,7 @@
 
 - (IBAction)saveReport:(id)sender {
     @weakify(self);
-    [self.viewModel.imageViewModel upLoadImageThenDo:^{
+    [self.viewModel.imageViewModel upLoadImageCompleted:^{
         @strongify(self);
         
         [[self.viewModel saveSignal] subscribeCompleted:^{

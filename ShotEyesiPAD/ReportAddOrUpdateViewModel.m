@@ -23,14 +23,20 @@
     
     self.createAPIPath = @"/Report/add";
     self.updateAPIPath = @"/Report/update";
-    self.updateFilter = @{@"_id":[self.model valueForKey:@"_id"]};
+    if (self.model._id) {
+        self.updateFilter = @{@"_id":self.model._id};
+    }
+    
     
     //    RAC(self.model, category) = RACObserve(self.category, _id);
     
     @weakify(self);
     [RACObserve(self, category) subscribeNext:^(id x) {
         @strongify(self);
-        self.model.category = self.category._id;
+        if (self.category._id) {
+            self.model.category = self.category._id;
+        }
+        
     }];
     [RACObserve(self.imageViewModel, model) subscribeNext:^(id x) {
         @strongify(self);

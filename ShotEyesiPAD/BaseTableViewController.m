@@ -27,6 +27,8 @@
 {
     [super viewDidLoad];
     
+    self.tableView.dataSource = self.viewModel;
+    
     self.refreshControl = [[UIRefreshControl alloc]init];
     
     @weakify(self);
