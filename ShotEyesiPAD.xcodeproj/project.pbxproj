@@ -27,11 +27,9 @@
 		4744837619220C39002BBCF5 /* ReportListViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744837519220C39002BBCF5 /* ReportListViewModel.m */; };
 		4744837C192229BF002BBCF5 /* ReportTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744837B192229BF002BBCF5 /* ReportTableViewCell.m */; };
 		4744837F19231825002BBCF5 /* CategoryAddViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744837E19231825002BBCF5 /* CategoryAddViewController.m */; };
-		4744838219231915002BBCF5 /* CategroyAddViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744838119231915002BBCF5 /* CategroyAddViewModel.m */; };
 		4744838B1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744838A1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m */; };
 		4744838E1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4744838D1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m */; };
 		47448394192881F6002BBCF5 /* ReportDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 47448393192881F6002BBCF5 /* ReportDetailViewController.m */; };
-		474483971928835D002BBCF5 /* ReportDetailViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 474483961928835D002BBCF5 /* ReportDetailViewModel.m */; };
 		B6681EA0F5C54902B5629580 /* libPods-ShotEyesiPAD.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E0AA51BD7309427994C64A84 /* libPods-ShotEyesiPAD.a */; };
 /* End PBXBuildFile section */
 
@@ -77,16 +75,12 @@
 		4744837B192229BF002BBCF5 /* ReportTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportTableViewCell.m; sourceTree = "<group>"; };
 		4744837D19231825002BBCF5 /* CategoryAddViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategoryAddViewController.h; sourceTree = "<group>"; };
 		4744837E19231825002BBCF5 /* CategoryAddViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryAddViewController.m; sourceTree = "<group>"; };
-		4744838019231915002BBCF5 /* CategroyAddViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CategroyAddViewModel.h; sourceTree = "<group>"; };
-		4744838119231915002BBCF5 /* CategroyAddViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategroyAddViewModel.m; sourceTree = "<group>"; };
 		474483891925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportAddOrUpdateViewModel.h; sourceTree = "<group>"; };
 		4744838A1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportAddOrUpdateViewModel.m; sourceTree = "<group>"; };
 		4744838C1925EC12002BBCF5 /* ReportAddOrUpdateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportAddOrUpdateViewController.h; sourceTree = "<group>"; };
 		4744838D1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportAddOrUpdateViewController.m; sourceTree = "<group>"; };
 		47448392192881F6002BBCF5 /* ReportDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailViewController.h; sourceTree = "<group>"; };
 		47448393192881F6002BBCF5 /* ReportDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailViewController.m; sourceTree = "<group>"; };
-		474483951928835D002BBCF5 /* ReportDetailViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ReportDetailViewModel.h; sourceTree = "<group>"; };
-		474483961928835D002BBCF5 /* ReportDetailViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ReportDetailViewModel.m; sourceTree = "<group>"; };
 		DF0C6AA446754296BB0090DE /* Pods-ShotEyesiPAD.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ShotEyesiPAD.xcconfig"; path = "Pods/Pods-ShotEyesiPAD.xcconfig"; sourceTree = "<group>"; };
 		E01A2137192B281700325F09 /* APIUrl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = APIUrl.h; sourceTree = "<group>"; };
 		E0AA51BD7309427994C64A84 /* libPods-ShotEyesiPAD.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ShotEyesiPAD.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -162,8 +156,6 @@
 				4744836F1921EFAF002BBCF5 /* CategoryTableViewCell.m */,
 				4744837D19231825002BBCF5 /* CategoryAddViewController.h */,
 				4744837E19231825002BBCF5 /* CategoryAddViewController.m */,
-				4744838019231915002BBCF5 /* CategroyAddViewModel.h */,
-				4744838119231915002BBCF5 /* CategroyAddViewModel.m */,
 				4744837119220BDA002BBCF5 /* ReportListTableViewController.h */,
 				4744837219220BDA002BBCF5 /* ReportListTableViewController.m */,
 				4744837419220C39002BBCF5 /* ReportListViewModel.h */,
@@ -176,8 +168,6 @@
 				4744838D1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m */,
 				47448392192881F6002BBCF5 /* ReportDetailViewController.h */,
 				47448393192881F6002BBCF5 /* ReportDetailViewController.m */,
-				474483951928835D002BBCF5 /* ReportDetailViewModel.h */,
-				474483961928835D002BBCF5 /* ReportDetailViewModel.m */,
 				474483441921C86F002BBCF5 /* Images.xcassets */,
 				474483331921C86F002BBCF5 /* Supporting Files */,
 			);
@@ -356,13 +346,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				4744833D1921C86F002BBCF5 /* AppDelegate.m in Sources */,
-				474483971928835D002BBCF5 /* ReportDetailViewModel.m in Sources */,
 				474483641921DE4E002BBCF5 /* Entities.m in Sources */,
 				47448394192881F6002BBCF5 /* ReportDetailViewController.m in Sources */,
 				474483701921EFAF002BBCF5 /* CategoryTableViewCell.m in Sources */,
 				4744837319220BDA002BBCF5 /* ReportListTableViewController.m in Sources */,
 				4744838B1925EAC4002BBCF5 /* ReportAddOrUpdateViewModel.m in Sources */,
-				4744838219231915002BBCF5 /* CategroyAddViewModel.m in Sources */,
 				4744837619220C39002BBCF5 /* ReportListViewModel.m in Sources */,
 				474483391921C86F002BBCF5 /* main.m in Sources */,
 				4744838E1925EC12002BBCF5 /* ReportAddOrUpdateViewController.m in Sources */,
